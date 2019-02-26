@@ -21,17 +21,13 @@ class Products extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text('Details'),
-                onPressed: () => Navigator.push<bool>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => ProductPage(
-                            products[index]['title'], products[index]['image']),
-                      ),
-                    ).then((bool value) {
-                      if(value){
+                onPressed: () =>
+                    Navigator.pushNamed<bool>(context, '/product/' + index.toString())
+                        .then((bool value) {
+                      if (value) {
                         deleteProduct(index);
                       }
-                    } ),
+                    }),
               )
             ],
           )
@@ -40,7 +36,8 @@ class Products extends StatelessWidget {
     );
   }
 
-  Widget _buildProductList() {    //checks whether addCard button is pressed for the 1st time.
+  Widget _buildProductList() {
+    //checks whether addCard button is pressed for the 1st time.
     Widget productCard;
 
     if (products.length > 0) {

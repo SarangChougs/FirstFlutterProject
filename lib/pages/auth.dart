@@ -17,11 +17,7 @@ class AuthPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {
-                Navigator.pushReplacement(  //this widget is used to replace the current page
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => ProductsPage()),
-                );
+                Navigator.pushReplacementNamed(context, '/');
               }),
         ));
   }
