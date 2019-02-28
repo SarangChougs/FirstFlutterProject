@@ -1,10 +1,16 @@
-import 'package:flutter/material.dart';
-import './products.dart';
+//This is the admin page where we can add details about the product and add it to the list
 
+import 'package:flutter/material.dart';
 import './product_create.dart';
 import './product_list.dart';
 
-class ProductSettings extends StatelessWidget {
+class ProductsAdminPage extends StatelessWidget {
+
+  final Function addProduct;
+  final Function deleteProduct;
+
+  ProductsAdminPage(this.addProduct,this.deleteProduct);
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -40,7 +46,7 @@ class ProductSettings extends StatelessWidget {
           ),
           body: TabBarView(
             children: <Widget>[
-              ProductCreatePage(),
+              ProductCreatePage(addProduct),
               ProductAddPage(),
             ],
           )),

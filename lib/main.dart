@@ -20,15 +20,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, String>> _products = [];
+  List<Map<String, dynamic>> _products = []; //this is the list of products
 
-  void _addProduct(Map<String, String> product) {
+  //This function adds product to the list of products.
+  void _addProduct(Map<String, dynamic> product) {
     setState(() {
       //Changing the state
       _products.add(product); //adding the new card
     });
   }
 
+  //This Function deletes the product from the list
   void _deleteProduct(int index) {
     setState(() {
       _products.removeAt(index);
@@ -41,9 +43,9 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(primarySwatch: Colors.deepOrange),
       //home: AuthPage(),
       routes: {
-        '/': (BuildContext context) =>
-            ProductsPage(_products, _addProduct, _deleteProduct),
-        '/settings': (BuildContext context) => ProductSettings()
+        '/': (BuildContext context) => ProductsPage(_products),
+        '/settings': (BuildContext context) => ProductsAdminPage(_addProduct,
+            _deleteProduct) //passing these two values to admin page as this is where we will add or delete the product.
       },
       onGenerateRoute: (RouteSettings settings) {
         //eg route '/product/2'
@@ -71,8 +73,7 @@ class _MyAppState extends State<MyApp> {
       //creating an unknown route in case the generate page route returns null this will run
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) =>
-                ProductsPage(_products, _addProduct, _deleteProduct));
+            builder: (BuildContext context) => ProductsPage(_products));
       },
     );
   }
