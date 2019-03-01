@@ -43,9 +43,10 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(primarySwatch: Colors.deepOrange),
       //home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => ProductsPage(_products),
+        '/': (BuildContext context) => AuthPage(),
         '/settings': (BuildContext context) => ProductsAdminPage(_addProduct,
-            _deleteProduct) //passing these two values to admin page as this is where we will add or delete the product.
+            _deleteProduct), //passing these two values to admin page as this is where we will add or delete the product.
+        'productsPage': (BuildContext context) => ProductsPage(_products)
       },
       onGenerateRoute: (RouteSettings settings) {
         //eg route '/product/2'

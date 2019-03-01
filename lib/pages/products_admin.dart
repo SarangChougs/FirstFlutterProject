@@ -5,11 +5,10 @@ import './product_create.dart';
 import './product_list.dart';
 
 class ProductsAdminPage extends StatelessWidget {
-
   final Function addProduct;
   final Function deleteProduct;
 
-  ProductsAdminPage(this.addProduct,this.deleteProduct);
+  ProductsAdminPage(this.addProduct, this.deleteProduct);
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +24,12 @@ class ProductsAdminPage extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text('Home'),
+                  onTap: () {
+                    Navigator.pushNamed(context, 'productlist');
+                  },
+                ),
+                ListTile(
+                  title: Text('Logout'),
                   onTap: () {
                     Navigator.pushReplacementNamed(context, '/');
                   },

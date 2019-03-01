@@ -8,7 +8,6 @@ import '../product_manager.dart';
 
 class ProductsPage extends StatelessWidget {
   final List<Map<String, dynamic>> products;
- 
 
   ProductsPage(this.products);
   @override
@@ -27,6 +26,12 @@ class ProductsPage extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacementNamed(context, '/settings');
                 }),
+            ListTile(
+              title: Text('Logout'),
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+            )
           ],
         ),
       ),
