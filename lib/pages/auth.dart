@@ -11,8 +11,8 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  String username;
-  String userPassword;
+  String _usernameValue;
+  String _passwordValue;
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +23,26 @@ class _AuthPageState extends State<AuthPage> {
         body: Center(
           child: Container(
             margin: EdgeInsets.all(20.0),
-            child: Column(
+            child: ListView(
               children: <Widget>[
                 TextField(
                   decoration: InputDecoration(labelText: 'Username'),
                   onChanged: (String user) {
-                    username = user;
+                   setState(() {
+                    _usernameValue = user; 
+                   });
                   },
                   keyboardType:TextInputType.text ,
                 ),
                 TextField(
                   decoration: InputDecoration(labelText: 'Password'),
-                  onChanged: (String password){
-                    userPassword = password;
+                  onChanged: (String user) {
+                   setState(() {
+                    _passwordValue = user; 
+                   });
                   },
                   keyboardType: TextInputType.text,
+                  obscureText: true,
                 ),
                 SizedBox(
                   height: 20.0,
@@ -47,7 +52,7 @@ class _AuthPageState extends State<AuthPage> {
                   textColor: Colors.white,
                   child: Text('Login'),
                   onPressed: (){
-                    Navigator.pushReplacementNamed(context, 'productlist');
+                    Navigator.pushReplacementNamed(context, '/products');
                   },
                 )
               ],

@@ -12,9 +12,9 @@ ProductCreatePage(this.addProduct);
 }
 
 class _ProductCreatePageState extends State<ProductCreatePage> {
-  String titleValue ;
-  String descriptionValue;
-  double priceValue;
+  String _titleValue ;
+  String _descriptionValue;
+  double _priceValue;
   
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             decoration: InputDecoration(labelText: 'Product Title'),
             onChanged: (String value) {
               setState(() {
-                titleValue = value;
+                _titleValue = value;
               });
             },
             keyboardType: TextInputType.text,
@@ -35,7 +35,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             decoration: InputDecoration(labelText: 'Product Description'),
             onChanged: (String value) {
               setState(() {
-                descriptionValue = value;
+                _descriptionValue = value;
               });
             },
             maxLines: 4,
@@ -44,7 +44,7 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             decoration: InputDecoration(labelText: 'Product Price'),
             onChanged: (String value) {
               setState(() {
-                priceValue = double.parse(value);
+                _priceValue = double.parse(value);
               });
             },
             keyboardType: TextInputType.number,
@@ -60,9 +60,9 @@ class _ProductCreatePageState extends State<ProductCreatePage> {
             ),
             onPressed: () {
               final Map<String, dynamic> product ={
-                'title': titleValue,
-                'description':descriptionValue,
-                'price':priceValue,
+                'title': _titleValue,
+                'description': _descriptionValue,
+                'price': _priceValue,
                 'image':'assets/space.jpg'
               };
               widget.addProduct(product);

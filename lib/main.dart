@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         '/': (BuildContext context) => AuthPage(),
         '/settings': (BuildContext context) => ProductsAdminPage(_addProduct,
             _deleteProduct), //passing these two values to admin page as this is where we will add or delete the product.
-        'productsPage': (BuildContext context) => ProductsPage(_products)
+        '/products': (BuildContext context) => ProductsPage(_products)
       },
       onGenerateRoute: (RouteSettings settings) {
         //eg route '/product/2'
