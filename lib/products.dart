@@ -14,15 +14,68 @@ class Products extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(products[index]['image']),
-          Text(products[index]['title']),
+          Container(
+            padding: EdgeInsets.only(top: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  products[index]['title'],
+                  style: TextStyle(
+                      fontSize: 26.0,
+                      fontFamily: 'Oswald',
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: 6.0,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+                  margin: EdgeInsets.only(top: 2.0),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                  child: Text(
+                    '\₹ ${products[index]['price'].toString()}', //this is used to add a special character to a dynamic value
+                    style: TextStyle(color: Colors.white, fontSize: 15.0),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+              child: Text('Union Square, Nagpur'),
+            ),
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlatButton(
-                child: Text('Details'),
+              IconButton(
+                icon: Icon(Icons.info),
+                color: Theme.of(context).accentColor,
                 onPressed: () => Navigator.pushNamed<bool>(
                     context, '/product/' + index.toString()),
-              )
+              ),
+              IconButton(
+                icon: Icon(Icons.favorite_border),
+                color: Colors.red,
+                onPressed: (){
+                  
+                },
+              ),
             ],
           )
         ],

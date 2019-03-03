@@ -23,12 +23,16 @@ class ProductsAdminPage extends StatelessWidget {
                   title: Text('Choose'),
                 ),
                 ListTile(
+                  leading: Icon(
+                    Icons.home,
+                  ),
                   title: Text('Home'),
                   onTap: () {
                     Navigator.pushNamed(context, 'productlist');
                   },
                 ),
                 ListTile(
+                  leading: Icon(Icons.lock_open),
                   title: Text('Logout'),
                   onTap: () {
                     Navigator.pushReplacementNamed(context, '/');

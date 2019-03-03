@@ -2,14 +2,17 @@
 //Here we load the homePage
 
 import 'package:flutter/material.dart';
-
 import './pages/auth.dart';
 import './pages/products_admin.dart';
 import './pages/products.dart';
 import './pages/product.dart';
+//import 'package:flutter/rendering.dart';
 
 //main function
-void main() => runApp(MyApp());
+void main() {
+  //debugPaintSizeEnabled = true;    // this is used to show size , dimensions, lines of the UI.
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override

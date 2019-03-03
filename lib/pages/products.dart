@@ -22,11 +22,15 @@ class ProductsPage extends StatelessWidget {
               title: Text('Choose'),
             ),
             ListTile(
+                leading: Icon(
+                  Icons.settings,
+                ),
                 title: Text('Settings'),
                 onTap: () {
                   Navigator.pushReplacementNamed(context, '/settings');
                 }),
             ListTile(
+              leading: Icon(Icons.lock_open),
               title: Text('Logout'),
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/');
@@ -37,6 +41,14 @@ class ProductsPage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text('Products'),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.favorite,
+            ),
+          ),
+        ],
       ),
       body: ProductManager(products),
     );
